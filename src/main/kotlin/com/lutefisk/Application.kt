@@ -19,8 +19,3 @@ fun Application.module() {
         UserService(UserRepository())
     )
 }
-
-/**
- * TODO
- * Encrypt password before persisting
- */

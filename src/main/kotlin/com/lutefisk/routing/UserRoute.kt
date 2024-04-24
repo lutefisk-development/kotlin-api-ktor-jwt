@@ -4,6 +4,7 @@ import com.lutefisk.model.User
 import com.lutefisk.routing.request.UserRequest
 import com.lutefisk.routing.response.UserResponse
 import com.lutefisk.service.UserService
+import com.lutefisk.util.generateHash
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -41,7 +42,7 @@ private fun UserRequest.toModel(): User =
     User(
         UUID.randomUUID(),
         this.username,
-        this.password
+        generateHash(this.password)
     )
 
 private fun User.toResponse(): UserResponse =
